@@ -11,6 +11,8 @@ app.use(cors());
 app.post("/register", async (req, res) => {
   const datas = {
     name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
   };
   try {
     const db = await database();

@@ -2,11 +2,15 @@ import React, { useState } from "react";
 
 function Register() {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const registration = (e) => {
     e.preventDefault();
     const data = {
       name: name,
+      email:email,
+      password:password,
     };
     fetch("http://localhost:5001/register", {
       method: "POST",
@@ -34,7 +38,21 @@ function Register() {
           onChange={(e) => setName(e.target.value)}
         />
         <br />
-        <button type="submit">Submit</button>
+        Email:
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        Password:
+        <input
+          type="text"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <button >Submit</button>
       </form>
     </div>
   );
